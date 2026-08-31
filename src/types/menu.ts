@@ -1,5 +1,5 @@
-export interface MenuItem {
+export interface MenuDataType {
   title: string;
   href: string;
-  children?: MenuItem[];
+  children?: MenuDataType[];
 }

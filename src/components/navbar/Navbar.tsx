@@ -1,22 +1,18 @@
-import Link from "next/link";
-import { menuItems } from "@/data/menuData";
-import MenuItem from "./MenuItem";
+import { menuLinks } from "@/data/menuData";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   return (
-    <header className="bg-white shadow-md">
-      <div className="h-16 max-w-7xl flex justify-between items-center mx-auto">
-        <Link href="/" className="text-2xl font-bold text-green-400">
-          East Point
-        </Link>
-        <nav>
-          <ul className="text-gray-500 flex gap-5">
-            {menuItems.map((item) => (
-              <MenuItem key={item.href} item={item} />
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <div>
+      <div>East Point</div>
+      <nav>
+        <ul>
+          {menuLinks.map((menu) => (
+            <NavLink key={menu.href} item={menu} /> // first item is prop name and this item will go now NavLink as prop
+            // Navbar -> LOOPs through all menu ,   NavLink -> DISPLAYS one menu item
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 }
