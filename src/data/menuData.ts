@@ -42,6 +42,26 @@ export const menuLinks: MenuDataType[] = [
       {
         title: "Surgery",
         href: "/departments/surgery",
+        children: [
+          {
+            title: "General Surgery",
+            href: "/departments/surgery/general-surgery",
+            children: [
+              {
+                title: "Manual Sugery",
+                href: "/departments/surgery/general-surgery/manual",
+              },
+              {
+                title: "Robotics Sugery",
+                href: "/departments/surgery/general-surgery/robotics",
+              },
+            ],
+          },
+          {
+            title: "Orthopadic Surgery",
+            href: "/departments/surgery/orthopadic-surgery",
+          },
+        ],
       },
     ],
   },

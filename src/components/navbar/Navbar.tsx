@@ -1,18 +1,37 @@
+"use client";
+import { useState } from "react";
 import { menuLinks } from "@/data/menuData";
 import NavLink from "./NavLink";
 
 export default function Navbar() {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   return (
-    <div>
-      <div>East Point</div>
-      <nav>
-        <ul>
-          {menuLinks.map((menu) => (
-            <NavLink key={menu.href} item={menu} /> // first item is prop name and this item will go now NavLink as prop
-            // Navbar -> LOOPs through all menu ,   NavLink -> DISPLAYS one menu item
-          ))}
-        </ul>
-      </nav>
-    </div>
+    <header className="bg-white shadow-md w-full">
+      <div className="flex justify-between items-center  p-5 mx-auto max-w-7xl">
+        <div className="text-2xl text-blue-900 font-bold">East Point</div>
+        <nav className="hidden md:block">
+          <ul className="flex items-center gap-6 font-semibold text-gray-500">
+            {menuLinks.map((menu) => (
+              <NavLink key={menu.href} item={menu} level={0} />
+            ))}
+          </ul>
+        </nav>
+        <button
+          className="md:hidden text-blue-700 font-bold text-2xl relative"
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+        >
+          ☰
+        </button>
+        {isMobileOpen && (
+          <nav className="p-5 absolute bg-white top-18 w-full left-0 shadow-md">
+            <ul className="text-gray-500 font-semibold">
+              {menuLinks.map((menu) => (
+                <NavLink key={menu.href} item={menu} level={0} mobile />
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
   );
 }
