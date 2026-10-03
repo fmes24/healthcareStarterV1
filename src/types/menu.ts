@@ -1,5 +1,6 @@
 export interface MenuDataType {
+  id: string;
   title: string;
-  href: string;
+  href?: string;
   children?: MenuDataType[];
 }
